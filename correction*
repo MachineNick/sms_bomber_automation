@@ -1,0 +1,36 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import requests
+import time
+
+import re
+#url = "https://support.google.com/"
+#r = requests.get(url)
+#print(r)
+
+driver = webdriver.Chrome()
+
+driver.get("https://mytoolstown.com/smsbomber")
+driver.maximize_window()
+
+# Fix the variable name from open_sms_bomber to elem
+elem = driver.find_element(By.XPATH, '/html/body/div[2]/div[2]/div[2]/center/a')
+time.sleep(2)
+elem.click()
+
+# Fix the variable name from imput_number to input_number
+input_number = driver.find_element(By.XPATH, '/html/body/div[6]/div[2]/div/div[2]/div/div[2]/form/div[1]/div/input')
+time.sleep(2)
+# Fix the variable name from community to giving_input
+input_number.send_keys("9466657434")
+time.sleep(2)
+
+# Fix the variable name from no_of_msg to input2
+no_of_msg = driver.find_element(By.XPATH, '/html/body/div[6]/div[2]/div/div[2]/div/div[2]/form/div[2]/input')
+
+time.sleep(1)
+# No need for a comment here, just remove the comment
+no_of_msg.send_keys("1")
+
+# Close the browser
+driver.quit()
